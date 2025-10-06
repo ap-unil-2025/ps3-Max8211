@@ -32,7 +32,10 @@ def count_words(filename):
     """
     # TODO: Open file and count words
     # Hint: Use split() to separate words
-    pass
+    with open(filename, 'r') as f:
+        text = f.read()          
+    words = text.split()         
+    return len(words)            
 
 
 def count_lines(filename):
@@ -46,7 +49,9 @@ def count_lines(filename):
         int: Total number of lines
     """
     # TODO: Open file and count lines
-    pass
+    with open(filename, 'r') as f:
+        lines = f.readlines()   
+    return len(lines)
 
 
 def count_characters(filename, include_spaces=True):
@@ -62,7 +67,11 @@ def count_characters(filename, include_spaces=True):
     """
     # TODO: Open file and count characters
     # If include_spaces is False, don't count spaces
-    pass
+    with open(filename, 'r') as f:
+        text = f.read()
+    if not include_spaces:
+        text = text.replace(" ", "")   # remove spaces
+    return len(text)
 
 
 def find_longest_word(filename):
@@ -77,7 +86,21 @@ def find_longest_word(filename):
     """
     # TODO: Find the longest word
     # Hint: You might need to remove punctuation
-    pass
+    import string
+
+    with open(filename, 'r') as f:
+        text = f.read()
+    
+    words = text.split()  # split text into words
+    # remove punctuation from each word
+    words = [word.strip(string.punctuation) for word in words]
+
+    if not words:
+        return ""
+
+    # find the longest word
+    longest = max(words, key=len)
+    return longest
 
 
 def word_frequency(filename):
@@ -101,6 +124,21 @@ def word_frequency(filename):
     # TODO: Remove punctuation (use string.punctuation)
     # TODO: Count frequency of each word
 
+
+    with open(filename, 'r') as f:
+        text = f.read()
+
+    words = text.split()
+    for word in words:
+        # Clean word: lowercase and remove punctuation
+        clean_word = word.lower().strip(string.punctuation)
+        if clean_word:  # skip empty strings
+            if clean_word in frequency:
+                frequency[clean_word] += 1
+            else:
+                frequency[clean_word] = 1
+
+    
     return frequency
 
 
