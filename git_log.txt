@@ -1,0 +1,6 @@
+0d3699f Dummy commit 3
+8ffe566 Dummy commit 2
+378a98e Dummy commit 1
+8366275 Completed Problems 2-4 and updated README with name and date
+7bcb689 Add GitHub Classroom autograding configuration
+2dc2daa Initial commit
