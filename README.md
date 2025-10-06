@@ -40,3 +40,4 @@ python bonus_password_generator.py  # if completed
 - [ ] All code is properly commented
 - [ ] Repository pushed to GitHubUpdate README
 Minor change for commit 2
+Minor change for commit 3
